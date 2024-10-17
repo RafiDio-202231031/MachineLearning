@@ -17,10 +17,6 @@ dataset[categorical_features]
 for i in categorical_features:
     print(dataset[i].unique())
 
-x = dataset.drop(['Kelas','No Data'], axis = 1)
-y = dataset['Kelas']
-
-
 from sklearn.preprocessing import LabelEncoder
 label_encoder = LabelEncoder()
 
@@ -28,6 +24,9 @@ for feature in categorical_features:
     print (dataset[feature].unique())
     dataset[feature] = label_encoder.fit_transform(dataset[feature])
     print(dataset[feature].unique())
+
+x = dataset.drop(['Kelas','No Data'], axis = 1)
+y = dataset['Kelas']
 
 dataset
 
